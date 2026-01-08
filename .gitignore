@@ -38,3 +38,10 @@ next-env.d.ts
 # Serwist
 public/sw*
 public/swe-worker*
+
+# Vídeos e arquivos grandes
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.webm
