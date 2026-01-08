@@ -1,0 +1,51 @@
+/**
+ * Verifica se uma rota é pública, incluindo rotas dinâmicas
+ */
+export function isPublicRoute(path: string) {
+  return publicRoutes.some((route) => {
+    if (route.includes(":")) {
+
+      const regex = new RegExp("^" + route.replace(/:[^/]+/g, "[^/]+") + "$", "i");
+      return regex.test(path);
+    }
+    return route === path;
+  });
+}
+/**
+ * an array of routes that are accessible to the public
+ * these routes do not require authentication
+ * @type {string[]}
+ */
+
+export const publicRoutes = [
+  "/", 
+];
+/**
+ * an array of routes that are used for authentication
+ * these routes will redirect logged in users to /settings
+ * @type {string[]}
+ */
+
+export const authRoutes = [
+  "/auth/login",
+  "/auth/register",
+  "/auth/error",
+  "/auth/reset",
+  "/auth/new-password"
+];
+
+/**
+ * the prefix for API authentication routes
+ * routes that start with this prefix are user for API autentication only
+ * @type {string}
+ */
+
+export const apiAuthPrefix = "/api/auth";
+
+
+/**
+ * the default redirect route path after logging in
+ * @type {string}
+ */
+
+export const DEFAULT_LOGIN_REDIRECT = "/";
