@@ -1,11 +1,11 @@
+import { Suspense } from "react";
 import { RegisterForm } from "@/components/auth/register-form";
 
 const Register = () => {
   return (
-    <div>
-    <RegisterForm/>
-     
-    </div>
+    <Suspense fallback={<div>Carregando...</div>}>
+      <RegisterForm/>
+    </Suspense>
   );
 };
 
