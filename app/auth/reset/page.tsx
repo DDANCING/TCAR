@@ -1,10 +1,11 @@
+import { Suspense } from "react";
 import { ResetForm } from "@/components/auth/reset-form";
 
 const ResetPage = () => {
   return (
-    <div>
+    <Suspense fallback={<div>Carregando...</div>}>
       <ResetForm/>
-    </div>
+    </Suspense>
   )
 }
 export default ResetPage;
